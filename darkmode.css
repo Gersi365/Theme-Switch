@@ -1,0 +1,76 @@
+h1 {
+  text-align: center;
+}
+/* Centers the text inside all <h1> elements. */
+
+:root {
+  --base-color: white;
+  --base-variant: #e8e9ed;
+  --text-color: #111528;
+  --secondary-text: #232738;
+  --primary-color: #3a435d;
+  --acent-color: #0071ff;
+}
+/* Declares CSS variables (custom properties) for the light mode theme. These variables provide reusable color values. */
+
+.darkmode {
+  --base-color: #070b1d;
+  --base-variant: #101425;
+  --text-color: #ffffff;
+  --secondary-text: #a4a5b8;
+  --primary-color: #3a435d;
+  --acent-color: #0071ff;
+}
+/* Defines a set of custom properties for the dark mode theme. When the `darkmode` class is applied to the body, these values override the default ones. */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+/* Resets margin and padding for all elements to ensure a consistent layout. */
+
+body {
+  min-height: 100vh;
+  background-color: var(--base-color);
+  color: var(--text-color);
+}
+/* Sets the body to take up at least the full viewport height.
+   The background and text colors use the current theme's custom properties. */
+
+#theme-switch {
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  border-radius: 50%;
+  background-color: var(--base-variant);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+/* Styles the theme switch button:
+   - 50px size with a circular shape (`border-radius: 50%`).
+   - Positioned fixed in the top-right corner.
+   - Uses the current theme's `--base-variant` for background color. */
+
+#theme-switch svg {
+  fill: var(--primary-color);
+}
+/* Sets the color of the SVG icons inside the theme switch button to the theme's `--primary-color`. */
+
+#theme-switch svg:last-child {
+  display: none;
+}
+/* Hides the second SVG icon (light mode icon) by default. */
+
+.darkmode #theme-switch svg:first-child {
+  display: none;
+}
+/* Hides the first SVG icon (dark mode icon) when the `darkmode` class is active. */
+
+.darkmode #theme-switch svg:last-child {
+  display: block;
+}
+/* Shows the second SVG icon (light mode icon) when the `darkmode` class is active. */
